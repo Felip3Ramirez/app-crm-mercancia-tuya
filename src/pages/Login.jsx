@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { alertaConfirmacion, alertaError } from "../helpers/funciones";
 function Login() {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
@@ -12,10 +13,12 @@ function Login() {
           setHoraLogin(new Date().toLocaleDateString())
           let horaInicio = new Date();
           console.log(horaInicio);
+          alertaConfirmacion();
           
             redireccion('/home')
         }else{
-        alert('Error de credenciales')}
+          alertaError();}
+        
     }
 
     
