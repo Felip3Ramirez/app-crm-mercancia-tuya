@@ -4,13 +4,18 @@ import "./Login.css";
 function Login() {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
+    const [getHoraLogin, setHoraLogin] = useState("")
     let redireccion = useNavigate()
 
     function iniciarSesion (user,password){
-        if(user === "admin" && password==="123456")
+        if(user === "admin" && password==="123456"){
+          setHoraLogin(new Date().toLocaleDateString())
+          let horaInicio = new Date();
+          console.log(horaInicio);
+          
             redireccion('/home')
-        else
-        alert('Error de credenciales')
+        }else{
+        alert('Error de credenciales')}
     }
 
     
