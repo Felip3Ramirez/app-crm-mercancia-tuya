@@ -3,10 +3,21 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { alertaConfirmacion, alertaError } from "../helpers/funciones";
 function Login() {
-    const [name, setName] = useState("")
+   const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [getHoraLogin, setHoraLogin] = useState("")
+    // const [usuarios, setUsuarios] = useState([])
+
     let redireccion = useNavigate()
+
+  // function getUsuarios(){
+  //   fetch("http://localhost:3001/usuarios",{})
+  //   .then(Response => Response.json())
+  //   .then(data =>  setUsuarios(data)
+  // )
+  // }
+  // getUsuarios()
+  // console.log(usuarios);
 
     function iniciarSesion (user,password){
         if(user === "admin" && password==="123456"){

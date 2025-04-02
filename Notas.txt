@@ -1,0 +1,6 @@
+aplicar enrutador en el proyecto integrador 
+
+axios -> Dependencia que permite hacer peticiones asincronas
+fetch -> Api que permite hacer peticiones asincronas
+
+Promesa -> 
