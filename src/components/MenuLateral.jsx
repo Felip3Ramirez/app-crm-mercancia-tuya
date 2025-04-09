@@ -6,6 +6,7 @@ const MenuLateral = () => {
   let redireccion = useNavigate();
   function cerrarSesion() {
     alertaRedireccion(redireccion, "Sesión cerrada", "Sera redieccionado al Login", "info", "/")
+    localStorage.removeItem("token");
   }
   return (
     <aside className="aplicacion__menu-lateral">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { alertaGenerica, alertaRedireccion } from "../helpers/funcione";
+import { alertaGenerica, alertaRedireccion, generarToken } from "../helpers/funcione";
 function Login() {
    const [name, setName] = useState("")
     const [password, setPassword] = useState("")
@@ -9,6 +9,8 @@ function Login() {
     // const [usuarios, setUsuarios] = useState([])
 
     let redireccion = useNavigate()
+    
+    
 
   // function getUsuarios(){
   //   fetch("http://localhost:3001/usuarios",{})
@@ -24,6 +26,8 @@ function Login() {
           setHoraLogin(new Date().toLocaleDateString())
           let horaInicio = new Date();
           console.log(horaInicio);
+          let tokenAcceso = generarToken();
+          localStorage.setItem("token",tokenAcceso);
           alertaRedireccion(redireccion,"Bienvenido","Sera redieccionado al Home","success","/home");
         }else{
           alertaGenerica("Error","Usuario o contraseña incorrectos","error");
