@@ -1,6 +1,18 @@
 aplicar enrutador en el proyecto integrador 
 
-axios -> Dependencia que permite hacer peticiones asincronas
-fetch -> Api que permite hacer peticiones asincronas
+axios -> Dependencia (npm - CDN) que permite hacer peticiones asincronas
+fetch -> Api que permite hacer peticiones asincronas JavaScript
+ajax -> Peticion nativa (Deprecada)
 
-Promesa -> 
+Fetch : peticion : promesa :asincrono
+Peticione:
+
+GET -> select -> Consultar
+POST -> insert -> Crear
+PUT -> update -> Actualizar
+DELETE -> delete -> Eliminar
+
+GET
+fetch (url)
+POST
+fetch (url , {})
