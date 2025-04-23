@@ -1,18 +1,17 @@
-import { useState,useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 import {
   alertaGenerica,
   alertaRedireccion,
   generarToken,
 } from "../helpers/funcione";
+import "./Login.css";
 
 let apiUsuarios = "https://back-json-server-tuya.onrender.com/usuarios";
 
 function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [getHoraLogin, setHoraLogin] = useState("");
   const [usuarios, setUsuarios] = useState([]);
 
   let redireccion = useNavigate();
@@ -37,11 +36,9 @@ function Login() {
 
   function iniciarSesion() {
     if (buscarUsuario()) {
-      setHoraLogin(new Date().toLocaleDateString());
-      let horaInicio = new Date();
-      console.log(horaInicio);
       let tokenAcceso = generarToken();
       localStorage.setItem("token", tokenAcceso);
+      localStorage.setItem("usuario", JSON.stringify(buscarUsuario()));
       alertaRedireccion(
         redireccion,
         "Bienvenido",
