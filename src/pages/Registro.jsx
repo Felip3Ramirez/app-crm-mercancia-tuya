@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  alertaGenerica,
-  alertaRedireccion,
-  generarToken,
+    alertaGenerica,
+    alertaRedireccion
 } from "../helpers/funcione";
-import "./Login.css";
+import "./Registro.css";
 
 let apiUsuarios = "https://back-json-server-tuya.onrender.com/usuarios";
 
-function Login() {
+function Registro() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [getUser, setUser] = useState("");
   const [usuarios, setUsuarios] = useState([]);
 
   let redireccion = useNavigate();
@@ -29,25 +29,33 @@ function Login() {
   },[]);
 
   function buscarUsuario() {
-    let user = usuarios.find((item) => name == item.user && password == item.password);
+    let user = usuarios.find((item) => getUser == item.user);
     return user;
   }
   
 
-  function iniciarSesion() {
+  function registrarUsuario() {
     if (buscarUsuario()) {
-      let tokenAcceso = generarToken();
-      localStorage.setItem("token", tokenAcceso);
-      localStorage.setItem("usuario", JSON.stringify(buscarUsuario()));
-      alertaRedireccion(
-        redireccion,
-        "Bienvenido",
-        "Sera redieccionado al Home",
-        "success",
-        "/home"
-      );
+        alertaGenerica("Error", "Usuario ya existe en la base de datos", "error");
     } else {
-      alertaGenerica("Error", "Usuario o contraseña incorrectos", "error");
+        let nuevoUsuario = {
+            nombre: name,
+            user:getUser,
+            password:password
+        }
+        fetch(apiUsuarios, {
+            method:"POST",
+            body:JSON.stringify(nuevoUsuario)
+        }).then(()=>{getUsuarios()})
+
+        alertaRedireccion(
+          redireccion,
+          "Registro Exitoso",
+          "Bienvenido",
+          "success",
+          "/"
+        );
+      
     }
   }
 
@@ -61,16 +69,22 @@ function Login() {
         placeholder="Name"
       />
       <input
+        onChange={(e) => setUser(e.target.value)}
+        type="text"
+        className="input"
+        placeholder="Usuario"
+      />
+      <input
         onChange={(e) => setPassword(e.target.value)}
         type="text"
         className="input"
         placeholder="Password"
       />
-      <button type="button" onClick={iniciarSesion}>
+      <button type="button" onClick={registrarUsuario}>
         Submit
       </button>
-      <Link to="/Registro" className="">No tienes una cuenta? Registrate </Link>
+        <Link to="/" className="">Ya tiene una cuenta? Inicia sesion </Link>
     </form>
   );
 }
-export default Login;
+export default Registro;
