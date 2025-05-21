@@ -5,7 +5,7 @@ let apiEnvios = "https://back-json-server-tuya.onrender.com/envios";
 
 export default function ListadoEnvios() {
   const [envios, setEnvios] = useState([]);
-
+    let usuarioLogeado = JSON.parse(localStorage.getItem("usuario"))
   function getEnvios() {
     fetch(apiEnvios)
       .then((Response) => Response.json())
@@ -18,8 +18,10 @@ export default function ListadoEnvios() {
   }, []);
 
   function filtrarEnvios() {
-    let envio = envios.find((item) => name == item.name && password == item.password);
-    return user;
+    let envio = envios.filter(
+        (item)=>item.idUsuario == usuarioLogeado.id
+    )
+    return envio;
   }
 
   return <div>hdsi</div>;
