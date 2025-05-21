@@ -34,7 +34,7 @@ export default function CrearEnvio() {
           "Envio registrado",
           "Sera redirecionando al listado",
           "success",
-          "/"
+          "/home/listar"
         );
       })
       .catch(() => {
