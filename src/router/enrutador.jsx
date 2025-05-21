@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import RutaProtegida from "../components/RutaProtegida";
 import Registro from "../pages/Registro";
+import CrearEnvio from "../pages/CrearEnvio";
 export let enrutador = [
   {
     path: '/home',
@@ -16,5 +17,9 @@ export let enrutador = [
   {
     path: '/Registro',
     element: <Registro></Registro>
+  },
+  {
+    path: '/CrearEnvio',
+    element: <CrearEnvio></CrearEnvio>
   }
 ]
