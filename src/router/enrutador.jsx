@@ -6,6 +6,7 @@ import RutaProtegida from "../components/RutaProtegida";
 import Registro from "../pages/Registro";
 import CrearEnvio from "../pages/CrearEnvio";
 import ListadoEnvios from "../pages/LIstadoEnvios";
+import EditarEnvio from "../pages/EditarEnvio";
 export let enrutador = [
   {
     path: "/home/",
@@ -18,6 +19,10 @@ export let enrutador = [
       {
         path:"listar",
         element:<ListadoEnvios></ListadoEnvios>
+      },
+      {
+        path:"editar/:id",
+        element:<EditarEnvio></EditarEnvio>
       }
     ],
   },

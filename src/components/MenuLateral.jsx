@@ -21,6 +21,7 @@ const MenuLateral = () => {
       <nav className="aplicacion__menu-lateral-navegacion">
         <Link className="aplicacion__menu-lateral-navegacion-item" to="">Inicio</Link>
         <Link className="aplicacion__menu-lateral-navegacion-item" to="/home/crearEnvio">Registrar Envio</Link>
+        {/* <Link className="aplicacion__menu-lateral-navegacion-item" to="/home/editar">Editar Envio</Link> */}
         <Link className="aplicacion__menu-lateral-navegacion-item" to="/home/listar">Gestión de envíos</Link>
         <Link className="aplicacion__menu-lateral-navegacion-item" to="">Gestión de clientes</Link>
         <button type='button' className="aplicacion__menu-lateral-navegacion-item" onClick={cerrarSesion}>Cerrar sesión</button>

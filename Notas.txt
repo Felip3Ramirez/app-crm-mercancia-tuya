@@ -19,3 +19,7 @@ fetch (url , {})
 
 
 useContext
+
+render- back
+aiven- baseDatos
+vercel o netlify - front
