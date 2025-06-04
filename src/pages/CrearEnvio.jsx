@@ -17,7 +17,7 @@ export default function CrearEnvio() {
   function registrarEnvio() {
     let usuarioLogeado = JSON.parse(localStorage.getItem("usuario"));
     let nuevoEnvio = {
-      nombre: name,
+      descripcion: name,
       origen: origen,
       destino: destino,
       fecha: fecha,
